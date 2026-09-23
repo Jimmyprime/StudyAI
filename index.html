@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>StudyAI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <script
+        type="module"
+        src="script.js"
+    ></script>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         NAVEGACIÓN
+    ========================================== -->
+
+    <header class="navbar">
+
+        <button
+            class="logo"
+            data-view="home"
+            aria-label="Ir al inicio"
+        >
+
+            <span class="logo-mark">✦</span>
+
+            <span>StudyAI</span>
+
+        </button>
+
+
+        <nav class="nav-links">
+
+            <button
+                class="nav-link active"
+                data-view="home"
+            >
+                Inicio
+            </button>
+
+            <button
+                class="nav-link"
+                data-view="subjects"
+            >
+                Materias
+            </button>
+
+            <button
+                class="nav-link"
+                data-view="study"
+            >
+                Estudiar
+            </button>
+
+            <button
+                class="nav-link"
+                data-view="materials"
+            >
+                Mis materiales
+            </button>
+
+            <button
+                class="nav-link"
+                data-view="how"
+            >
+                Cómo funciona
+            </button>
+
+        </nav>
+
+
+        <button
+            class="header-button"
+            data-view="study"
+        >
+            Empezar
+        </button>
+
+    </header>
+
+
+
+    <!-- =========================================
+         CONTENIDO
+    ========================================== -->
+
+    <main>
+
+
+        <!-- =====================================
+             INICIO
+        ====================================== -->
+
+        <section
+            id="home"
+            class="view active"
+        >
+
+            <div class="home-page">
+
+
+                <div class="home-left">
+
+
+                    <div class="status-pill">
+
+                        <span class="status-dot"></span>
+
+                        INTELIGENCIA ARTIFICIAL PARA ESTUDIAR
+
+                    </div>
+
+
+                    <h1>
+
+                        Aprende
+                        <span>mejor.</span>
+
+                        Estudia
+                        de forma
+                        <span>inteligente.</span>
+
+                    </h1>
+
+
+                    <p class="home-description">
+
+                        Convierte cualquier tema de tus clases
+                        en explicaciones, ejemplos y ejercicios
+                        personalizados.
+
+                    </p>
+
+
+                    <div class="home-buttons">
+
+                        <button
+                            class="primary-button"
+                            data-view="study"
+                        >
+
+                            Comenzar a estudiar
+
+                            <span>→</span>
+
+                        </button>
+
+
+                        <button
+                            class="secondary-button"
+                            data-view="how"
+                        >
+
+                            ¿Cómo funciona?
+
+                        </button>
+
+                    </div>
+
+
+                    <div class="home-stats">
+
+
+                        <div class="home-stat">
+
+                            <strong>6+</strong>
+
+                            <span>Materias</span>
+
+                        </div>
+
+
+                        <div class="home-stat">
+
+                            <strong>AI</strong>
+
+                            <span>Personalizada</span>
+
+                        </div>
+
+
+                        <div class="home-stat">
+
+                            <strong>24/7</strong>
+
+                            <span>Disponible</span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="home-right">
+
+
+                    <div class="orb orb-one"></div>
+
+                    <div class="orb orb-two"></div>
+
+
+                    <div class="dashboard-card">
+
+
+                        <div class="dashboard-header">
+
+
+                            <div class="dashboard-brand">
+
+                                <span class="mini-mark">
+                                    ✦
+                                </span>
+
+                                StudyAI
+
+                            </div>
+
+
+                            <div class="live-status">
+
+                                <span></span>
+
+                                ONLINE
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="dashboard-content">
+
+
+                            <p class="dashboard-label">
+                                TU PRÓXIMA SESIÓN
+                            </p>
+
+
+                            <h2>
+                                ¿Qué quieres estudiar?
+                            </h2>
+
+
+                            <div class="preview-subject">
+
+
+                                <div class="preview-icon">
+                                    📐
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        Matemáticas
+                                    </strong>
+
+                                    <small>
+                                        Ecuaciones de primer grado
+                                    </small>
+
+                                </div>
+
+
+                                <span class="arrow-icon">
+                                    →
+                                </span>
+
+
+                            </div>
+
+
+                            <div class="preview-topic">
+
+
+                                <span>✦</span>
+
+                                Material personalizado
+
+                                <b>AI</b>
+
+
+                            </div>
+
+
+                            <div class="preview-divider"></div>
+
+
+                            <div class="preview-bottom">
+
+
+                                <span>
+                                    Explicación
+                                </span>
+
+                                <span>
+                                    Ejemplos
+                                </span>
+
+                                <span>
+                                    Ejercicios
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="floating-mini mini-left">
+
+                        🧠
+
+                        <div>
+
+                            <strong>
+                                Explicaciones
+                            </strong>
+
+                            <small>
+                                Más fáciles de entender
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="floating-mini mini-right">
+
+                        ✏️
+
+                        <div>
+
+                            <strong>
+                                Practica
+                            </strong>
+
+                            <small>
+                                Con ejercicios
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             MATERIAS
+        ====================================== -->
+
+        <section
+            id="subjects"
+            class="view"
+        >
+
+            <div class="standard-page">
+
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <p class="page-label">
+                            STUDYAI
+                        </p>
+
+                        <h1>
+                            Elige una materia
+                        </h1>
+
+                        <p>
+                            Selecciona una materia para empezar
+                            una nueva sesión de estudio.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="subjects-grid">
+
+
+                    <button
+                        class="subject-card"
+                        data-subject="Matemáticas"
+                    >
+
+                        <div class="subject-card-icon">
+                            📐
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Matemáticas
+                            </strong>
+
+                            <span>
+                                Álgebra, funciones y geometría
+                            </span>
+
+                        </div>
+
+                        <b>→</b>
+
+                    </button>
+
+
+                    <button
+                        class="subject-card"
+                        data-subject="Física"
+                    >
+
+                        <div class="subject-card-icon">
+                            🔭
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Física
+                            </strong>
+
+                            <span>
+                                Movimiento, luz y energía
+                            </span>
+
+                        </div>
+
+                        <b>→</b>
+
+                    </button>
+
+
+                    <button
+                        class="subject-card"
+                        data-subject="Química"
+                    >
+
+                        <div class="subject-card-icon">
+                            ⚗️
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Química
+                            </strong>
+
+                            <span>
+                                Átomos, enlaces y reacciones
+                            </span>
+
+                        </div>
+
+                        <b>→</b>
+
+                    </button>
+
+
+                    <button
+                        class="subject-card"
+                        data-subject="Historia"
+                    >
+
+                        <div class="subject-card-icon">
+                            🌎
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Historia
+                            </strong>
+
+                            <span>
+                                Procesos y acontecimientos
+                            </span>
+
+                        </div>
+
+                        <b>→</b>
+
+                    </button>
+
+
+                    <button
+                        class="subject-card"
+                        data-subject="Biología"
+                    >
+
+                        <div class="subject-card-icon">
+                            🧬
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Biología
+                            </strong>
+
+                            <span>
+                                Vida, células y organismos
+                            </span>
+
+                        </div>
+
+                        <b>→</b>
+
+                    </button>
+
+
+                    <button
+                        class="subject-card"
+                        data-subject="Inglés"
+                    >
+
+                        <div class="subject-card-icon">
+                            🇬🇧
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Inglés
+                            </strong>
+
+                            <span>
+                                Gramática y vocabulario
+                            </span>
+
+                        </div>
+
+                        <b>→</b>
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             ESTUDIAR
+        ====================================== -->
+
+        <section
+            id="study"
+            class="view"
+        >
+
+            <div class="standard-page study-page">
+
+
+                <div class="page-top-row">
+
+                    <div>
+
+                        <p class="page-label">
+                            NUEVA SESIÓN
+                        </p>
+
+                        <h1>
+                            ¿Qué quieres aprender?
+                        </h1>
+
+                        <p>
+                            Completa los datos y StudyAI preparará
+                            tu material de estudio.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="small-outline-button"
+                        data-view="subjects"
+                    >
+
+                        Ver materias
+
+                    </button>
+
+                </div>
+
+
+                <div class="study-layout">
+
+
+                    <div class="study-form-card">
+
+
+                        <div class="form-step">
+                            01
+                        </div>
+
+
+                        <label for="subject-select">
+
+                            Materia
+
+                        </label>
+
+
+                        <select id="subject-select">
+
+                            <option value="">
+                                Selecciona una materia
+                            </option>
+
+                            <option value="Matemáticas">
+                                📐 Matemáticas
+                            </option>
+
+                            <option value="Física">
+                                🔭 Física
+                            </option>
+
+                            <option value="Química">
+                                ⚗️ Química
+                            </option>
+
+                            <option value="Historia">
+                                🌎 Historia
+                            </option>
+
+                            <option value="Biología">
+                                🧬 Biología
+                            </option>
+
+                            <option value="Inglés">
+                                🇬🇧 Inglés
+                            </option>
+
+                        </select>
+
+
+                        <label for="topic-input">
+
+                            Tema
+
+                        </label>
+
+
+                        <input
+                            id="topic-input"
+                            type="text"
+                            placeholder="Ej: ecuaciones de primer grado"
+                        >
+
+
+                        <button
+                            id="generate-button"
+                            class="generate-button"
+                        >
+
+                            <span>✦</span>
+
+                            Generar material
+
+                            <span>→</span>
+
+                        </button>
+
+
+                        <div class="form-tip">
+
+                            <span>💡</span>
+
+                            <p>
+
+                                Mientras más específico sea
+                                el tema, más útil será el material.
+
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="study-info-card">
+
+
+                        <div class="study-info-icon">
+                            🧠
+                        </div>
+
+
+                        <h2>
+                            StudyAI preparará
+                            tu sesión
+                        </h2>
+
+
+                        <p>
+                            El material se organizará para que
+                            puedas aprender primero, practicar
+                            después y comprobar tus respuestas.
+                        </p>
+
+
+                        <div class="process-list">
+
+
+                            <div class="process-item">
+
+                                <span>01</span>
+
+                                <div>
+
+                                    <strong>
+                                        Explicación
+                                    </strong>
+
+                                    <small>
+                                        Comprende el contenido.
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="process-item">
+
+                                <span>02</span>
+
+                                <div>
+
+                                    <strong>
+                                        Ejemplo
+                                    </strong>
+
+                                    <small>
+                                        Mira cómo se aplica.
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="process-item">
+
+                                <span>03</span>
+
+                                <div>
+
+                                    <strong>
+                                        Ejercicios
+                                    </strong>
+
+                                    <small>
+                                        Comprueba lo aprendido.
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             RESULTADO
+        ====================================== -->
+
+        <section
+            id="result-view"
+            class="view"
+        >
+
+            <div class="result-page">
+
+
+                <div class="result-topbar">
+
+
+                    <button
+                        class="back-button"
+                        data-view="study"
+                    >
+
+                        ← Nueva sesión
+
+                    </button>
+
+
+                    <div class="result-status">
+
+                        <span></span>
+
+                        MATERIAL GENERADO
+
+                    </div>
+
+
+                </div>
+
+
+                <div class="result-heading">
+
+
+                    <div>
+
+                        <p class="page-label">
+                            STUDYAI
+                        </p>
+
+                        <h1 id="result-title">
+                            Tu material
+                        </h1>
+
+                    </div>
+
+
+                    <div
+                        id="result-meta"
+                        class="result-meta"
+                    >
+                    </div>
+
+
+                </div>
+
+
+                <div
+                    id="result-content"
+                    class="result-content"
+                >
+
+                    <div class="loading-placeholder">
+
+                        <div class="loader"></div>
+
+                        <p>
+                            Preparando material...
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             MIS MATERIALES
+        ====================================== -->
+
+        <section
+            id="materials"
+            class="view"
+        >
+
+            <div class="standard-page">
+
+
+                <div class="page-heading">
+
+                    <div>
+
+                        <p class="page-label">
+                            TU ESPACIO
+                        </p>
+
+                        <h1>
+                            Mis materiales
+                        </h1>
+
+                        <p>
+                            Aquí aparecerán los materiales
+                            que hayas generado.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="primary-small-button"
+                        data-view="study"
+                    >
+
+                        + Nuevo material
+
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="materials-list"
+                    class="materials-list"
+                >
+
+
+                    <div class="empty-materials">
+
+                        <div class="empty-icon">
+                            📚
+                        </div>
+
+                        <h2>
+                            Aún no tienes materiales
+                        </h2>
+
+                        <p>
+                            Genera tu primer material y aparecerá
+                            aquí automáticamente.
+                        </p>
+
+                        <button
+                            class="primary-button"
+                            data-view="study"
+                        >
+
+                            Crear mi primer material
+
+                            <span>→</span>
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             CÓMO FUNCIONA
+        ====================================== -->
+
+        <section
+            id="how"
+            class="view"
+        >
+
+            <div class="standard-page">
+
+
+                <div class="page-heading centered-heading">
+
+                    <p class="page-label">
+                        CÓMO FUNCIONA
+                    </p>
+
+                    <h1>
+                        Estudiar con StudyAI
+                    </h1>
+
+                    <p>
+                        Una experiencia simple:
+                        eliges, generas y aprendes.
+                    </p>
+
+                </div>
+
+
+                <div class="how-grid">
+
+
+                    <article class="how-card">
+
+                        <div class="how-number">
+                            01
+                        </div>
+
+                        <div class="how-icon">
+                            📚
+                        </div>
+
+                        <h2>
+                            Elige
+                        </h2>
+
+                        <p>
+                            Selecciona una materia y escribe
+                            el tema que quieres estudiar.
+                        </p>
+
+                    </article>
+
+
+                    <article class="how-card">
+
+                        <div class="how-number">
+                            02
+                        </div>
+
+                        <div class="how-icon">
+                            ✦
+                        </div>
+
+                        <h2>
+                            Genera
+                        </h2>
+
+                        <p>
+                            StudyAI utiliza un modelo de
+                            inteligencia artificial para preparar
+                            tu material.
+                        </p>
+
+                    </article>
+
+
+                    <article class="how-card">
+
+                        <div class="how-number">
+                            03
+                        </div>
+
+                        <div class="how-icon">
+                            🧠
+                        </div>
+
+                        <h2>
+                            Aprende
+                        </h2>
+
+                        <p>
+                            Lee la explicación, revisa el ejemplo
+                            y practica con ejercicios.
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+
+                <div class="how-bottom">
+
+
+                    <div>
+
+                        <span class="how-bottom-icon">
+                            💻
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Tecnología utilizada
+                            </strong>
+
+                            <p>
+                                HTML + CSS + JavaScript +
+                                Transformers.js + Qwen3.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        class="primary-button"
+                        data-view="study"
+                    >
+
+                        Probar StudyAI
+
+                        <span>→</span>
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <footer>
+
+        <span>
+            © 2026 StudyAI
+        </span>
+
+        <span>
+            Aprende de una forma más inteligente.
+        </span>
+
+    </footer>
+
+
+</body>
+
+</html>
