@@ -1,11 +1,26 @@
 const express = require("express");
-conControl-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-    next();
-});
+const path = require("path");
+
+const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Permitir que la página web se comunique con el servidor
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header(
+        "Access-Control-Allow-Headers",
+        "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+
+    if (req.method === "OPTIONS") {
+        return res.sendStatus(200);
+    }
+
+    next();
+});
+
+// Permitir recibir JSON
 app.use(express.json());
 
 // Página principal
@@ -15,11 +30,7 @@ app.get("/", (req, res) => {
 
 // Archivo CSS
 app.get("/style.css", (req, res) => {
-    res.sendFile(path.join(__dirname, "..", "style.css"));st path = require("path");
-
-const app = express();
-app.use((req, res, next) => {
-    res.header("Access-
+    res.sendFile(path.join(__dirname, "..", "style.css"));
 });
 
 // Archivo JavaScript
@@ -33,9 +44,9 @@ app.get("/api/test", (req, res) => {
         message: "El servidor de StudyAI funciona correctamente."
     });
 });
+
 // Generar material de estudio
 app.post("/api/generate", (req, res) => {
-
     const { subject, topic } = req.body;
 
     if (!subject || !topic) {
@@ -87,7 +98,7 @@ y finalmente comprobar el resultado.
 2. Escribe un ejemplo relacionado con ${topic}.
 
 3. Explica qué pasos seguirías para resolver un problema
-   relacionado con ${topic}.
+relacionado con ${topic}.
 
 ━━━━━━━━━━━━━━━━━━━━
 
@@ -101,6 +112,8 @@ conectemos StudyAI con un modelo de inteligencia artificial.
         text: material
     });
 });
+
+// Iniciar servidor
 app.listen(PORT, "0.0.0.0", () => {
     console.log(`StudyAI está funcionando en el puerto ${PORT}`);
 });
