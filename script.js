@@ -944,289 +944,118 @@ renderMaterials();
 // GENERAR MATERIAL
 // ============================================
 
-generateButton.addEventListener(
-    "click",
-    async () => {
+generateButton.addEventListener("click", async () => {
 
-        const subject =
-            subjectSelect.value;
+    const subject = subjectSelect.value;
+    const topic = topicInput.value.trim();
 
+    // Comprobar que el usuario escribió los datos
+    if (subject === "" || topic === "") {
 
-        const topic =
-            topicInput.value.trim();
-
-
-        // Validación
-        if (
-            subject === ""
-            ||
-            topic === ""
-        ) {
-
-            resultTitle.textContent =
-                "Falta información";
-
-
-            resultMeta.innerHTML = "";
-
-
-            resultContent.innerHTML = `
-
-                <div class="error-box">
-
-                    ⚠️ Selecciona una materia
-                    y escribe un tema.
-
-                </div>
-
-            `;
-
-
-            showView(
-                "result-view"
-            );
-
-
-            return;
-
-        }
-
-
-        // Preparar pantalla de resultados
-        resultTitle.textContent =
-            topic;
-
-
-        resultMeta.innerHTML = `
-
-            <span class="meta-chip">
-
-                ${escapeHTML(subject)}
-
-            </span>
-
-            <span class="meta-chip">
-
-                ✦ StudyAI
-
-            </span>
-
-        `;
-
+        resultTitle.textContent = "Falta información";
+        resultMeta.innerHTML = "";
 
         resultContent.innerHTML = `
+            <div class="error-box">
+                ⚠️ Selecciona una materia y escribe un tema.
+            </div>
+        `;
 
-            <div class="loading-placeholder">
+        showView("result-view");
+        return;
+    }
 
-                <div class="loader"></div>
+    // Preparar pantalla de resultados
+    resultTitle.textContent = topic;
+
+    resultMeta.innerHTML = `
+        <span class="meta-chip">
+            ${escapeHTML(subject)}
+        </span>
+
+        <span class="meta-chip">
+            ✦ StudyAI
+        </span>
+    `;
+
+    resultContent.innerHTML = `
+        <div class="loading-box">
+            <div class="loader"></div>
+            <p>🤖 Generando tu material...</p>
+        </div>
+    `;
+
+    showView("result-view");
+
+    generateButton.disabled = true;
+
+    try {
+
+        // Enviar materia y tema al servidor público de StudyAI
+        const response = await fetch(
+            "https://studyai-r71d.onrender.com/api/generate",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+                    subject: subject,
+                    topic: topic
+                })
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error(
+                "El servidor respondió con un error."
+            );
+        }
+
+        const data = await response.json();
+
+        if (!data.text) {
+            throw new Error(
+                "El servidor no devolvió material."
+            );
+        }
+
+        // Mostrar el material recibido
+        resultContent.innerHTML =
+            formatAIResponse(data.text);
+
+        // Guardarlo en Mis materiales
+        saveMaterial(
+            subject,
+            topic,
+            data.text
+        );
+
+    } catch (error) {
+
+        console.error(
+            "Error generando material:",
+            error
+        );
+
+        resultContent.innerHTML = `
+            <div class="error-box">
+
+                <strong>
+                    ❌ Ocurrió un error al generar el material.
+                </strong>
 
                 <p>
-                    Preparando tu material...
+                    ${escapeHTML(error.message)}
                 </p>
 
             </div>
-
         `;
 
-
-        // Cambiar a pantalla de resultado
-        showView(
-            "result-view"
-        );
-
-
-        generateButton.disabled =
-            true;
-
-
-        try {
-
-            const ai =
-                await loadAI();
-
-
-            resultContent.innerHTML = `
-
-                <div class="loading-box">
-
-                    <div class="loader"></div>
-
-                    <p>
-                        🤖 Generando tu material...
-                    </p>
-
-                </div>
-
-            `;
-
-
-            const messages = [
-
-                {
-
-                    role: "system",
-
-                    content:
-
-                        "Eres StudyAI, un asistente educativo " +
-
-                        "para estudiantes de enseñanza media. " +
-
-                        "Responde siempre en español. " +
-
-                        "Sé claro, preciso y ordenado. " +
-
-                        "No muestres razonamiento interno. " +
-
-                        "No escribas etiquetas <think>. " +
-
-                        "Entrega solamente la respuesta final."
-
-                },
-
-                {
-
-                    role: "user",
-
-                    content:
-
-                        `Crea material de estudio sobre:
-
-Materia: ${subject}
-
-Tema: ${topic}
-
-Organiza la respuesta así:
-
-# ${topic}
-
-## 📖 Explicación
-
-Explica el tema de forma clara y sencilla.
-
-## 🧠 Conceptos importantes
-
-Explica los conceptos fundamentales.
-
-## ✏️ Ejemplo paso a paso
-
-Incluye un ejemplo explicado paso a paso.
-
-## 📝 Ejercicios
-
-Crea 3 ejercicios relacionados con el tema.
-
-## ✅ Respuestas
-
-Entrega las respuestas de los 3 ejercicios.
-
-Reglas:
-
-- Responde en español.
-- Usa párrafos separados.
-- Usa títulos claros.
-- No escribas <think>.
-- No muestres razonamiento interno.
-- Entrega solamente el material final.
-- Escribe /no_think al final.`
-
-                }
-
-            ];
-
-
-            const output =
-                await ai(
-                    messages,
-                    {
-
-                        max_new_tokens: 800,
-
-                        do_sample: true,
-
-                        temperature: 0.7,
-
-                        top_p: 0.8,
-
-                        top_k: 20
-
-                    }
-                );
-
-
-            let generatedText =
-                output?.[0]
-                    ?.generated_text
-                    ?.at(-1)
-                    ?.content;
-
-
-            if (!generatedText) {
-
-                throw new Error(
-                    "La IA no devolvió una respuesta."
-                );
-
-            }
-
-
-            generatedText =
-                cleanAIResponse(
-                    generatedText
-                );
-
-
-            // Mostrar resultado bonito
-            resultContent.innerHTML =
-                formatAIResponse(
-                    generatedText
-                );
-
-
-            // Guardar en materiales
-            saveMaterial(
-                subject,
-                topic,
-                generatedText
-            );
-
-
-        } catch (error) {
-
-            console.error(
-                "Error generando:",
-                error
-            );
-
-
-            resultContent.innerHTML = `
-
-                <div class="error-box">
-
-                    <strong>
-
-                        ❌ Ocurrió un error
-                        al generar el material.
-
-                    </strong>
-
-                    <p>
-
-                        ${escapeHTML(
-                            error.message
-                        )}
-
-                    </p>
-
-                </div>
-
-            `;
-
-        }
-
-
-        generateButton.disabled =
-            false;
-
     }
-);
+
+    generateButton.disabled = false;
+
+});
